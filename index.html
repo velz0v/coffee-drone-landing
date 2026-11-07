@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AeroBrew — кофе, который прилетает на дроне</title>
+  <meta name="description" content="AeroBrew — сеть кофеен с доставкой дронами. Заказал в один тап — дрон доставил горячий кофе к твоему окну за 15 минут." />
+  <link rel="stylesheet" href="fonts.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%9B%B8%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+  <!-- ═══════════ NAV ═══════════ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="logo" href="#top">
+        <span class="logo__mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="5" cy="5" r="2.4"/><circle cx="19" cy="5" r="2.4"/>
+            <circle cx="5" cy="19" r="2.4"/><circle cx="19" cy="19" r="2.4"/>
+            <path d="M7 5h10M5 7v10M19 7v10M7 19h10"/>
+            <path d="M10.5 15.5v-4l3-1v4" /><circle cx="9.6" cy="15.8" r="1.1"/><circle cx="12.6" cy="14.8" r="1.1"/>
+          </svg>
+        </span>
+        <span class="logo__text">Aero<b>Brew</b></span>
+      </a>
+      <nav class="nav__links" id="navLinks">
+        <a href="#how">Как работает</a>
+        <a href="#menu">Меню</a>
+        <a href="#fleet">Флот</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <button class="btn btn--primary btn--sm js-order">Заказать дрон 🛸</button>
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero" id="top">
+    <div class="blob blob--1"></div>
+    <div class="blob blob--2"></div>
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <div class="pill reveal">🛸 Первый в городе кофейный дрон-сервис</div>
+        <h1 class="reveal delay-1">Твой капучино — <em>уже в воздухе</em></h1>
+        <p class="hero__lead reveal delay-2">
+          AeroBrew — кофейни, которые доставляют сами себя. Крутим зёрна свежей обжарки,
+          а дрон привозит кофе горячим прямо к твоему окну. Среднее время полёта — 15 минут.
+        </p>
+        <div class="hero__actions reveal delay-3">
+          <button class="btn btn--primary js-order">Заказать дрон ☕</button>
+          <a class="btn btn--ghost" href="#how">Как это работает ↓</a>
+        </div>
+        <div class="hero__stats reveal delay-4">
+          <div class="stat"><b class="js-counter" data-to="15">0</b><span>минут до двери</span></div>
+          <div class="stat"><b class="js-counter" data-to="12400">0</b><span>успешных рейсов</span></div>
+          <div class="stat"><b class="js-counter" data-to="42">0</b><span>дронов во флоте</span></div>
+          <div class="stat"><b>4.9<span class="star">★</span></b><span>рейтинг</span></div>
+        </div>
+      </div>
+
+      <div class="hero__visual reveal delay-2">
+        <div class="photo-card tilt">
+          <img src="assets/img/hero-drone.jpg" alt="Дрон DJI Inspire летит" />
+          <div class="photo-card__badge"> Полёт #12401 · Район Хурма </div>
+        </div>
+        <div class="float-chip float-chip--1">
+          <div class="float-chip__icon">☕</div>
+          <div>
+            <b>Капучино «Облако»</b>
+            <small>высота 42 м · температура 78°</small>
+          </div>
+        </div>
+        <div class="float-chip float-chip--2">
+          <div class="float-chip__icon">📡</div>
+          <div>
+            <b>RTK-GPS</b>
+            <small>точность 30 см</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ MARQUEE ═══════════ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>☕ ГОРЯЧИЙ КАК ИЗ ЧАШКИ</span><span>🛸 БЕЗ ПРОБОК И ПАРКОВОК</span><span>⏱ 15 МИНУТ ДО ДВЕРИ</span><span>☁️ ТЕРМОКАПСУЛА 78°</span><span>🌙 ЛЕТАЕМ С 07:00</span><span>📦 12 ЧАШЕК ЗА РЕЙС</span>
+      <span>☕ ГОРЯЧИЙ КАК ИЗ ЧАШКИ</span><span>🛸 БЕЗ ПРОБОК И ПАРКОВОК</span><span>⏱ 15 МИНУТ ДО ДВЕРИ</span><span>☁️ ТЕРМОКАПСУЛА 78°</span><span>🌙 ЛЕТАЕМ С 07:00</span><span>📦 12 ЧАШЕК ЗА РЕЙС</span>
+    </div>
+  </div>
+
+  <!-- ═══════════ HOW ═══════════ -->
+  <section class="section" id="how">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="kicker">Как это работает</span>
+        <h2>Три шага между тобой <br>и горячей чашкой ☕</h2>
+      </div>
+      <div class="steps">
+        <article class="step reveal">
+          <span class="step__num">01</span>
+          <div class="step__icon">📱</div>
+          <h3>Заказ в один тап</h3>
+          <p>Выбираешь напиток и точку доставки — балкон, двор или переговорка. Координаты дрон подтягивает сам.</p>
+        </article>
+        <article class="step step--accent reveal delay-1">
+          <span class="step__num">02</span>
+          <div class="step__icon">🧑‍🍳</div>
+          <h3>Бариста варит</h3>
+          <p>Зёрна свежей обжарки, помол под полёт. Кофе герметизируется в термо-капсуле — 78°C на всём пути.</p>
+        </article>
+        <article class="step reveal delay-2">
+          <span class="step__num">03</span>
+          <div class="step__icon">🛸</div>
+          <h3>Дрон у окна</h3>
+          <p>RTK-GPS приводит дрона с точностью до 30 см. Капсула мягко опускается на тросе — просто открой окно.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ MENU ═══════════ -->
+  <section class="section section--tinted" id="menu">
+    <div class="container">
+      <div class="section__head section__head--row reveal">
+        <div>
+          <span class="kicker">Меню полёта</span>
+          <h2>Что возьмёшь на борт?</h2>
+        </div>
+        <p class="section__note">Цены уже с доставкой дроном. Шторм — курьер на велике, цена та же 🤙</p>
+      </div>
+      <div class="menu-grid">
+        <article class="dish reveal">
+          <div class="dish__img"><img src="assets/img/espresso-wood.jpg" alt="Эспрессо на зёрнах" /></div>
+          <div class="dish__body">
+            <h3>Эспрессо «Рофорт»</h3>
+            <p>Двойной, робуста Бразилия, плотный как штормовой фронт</p>
+            <div class="dish__foot"><b>190 ₽</b><button class="btn btn--sm btn--outline js-order">Заказать</button></div>
+          </div>
+        </article>
+        <article class="dish reveal delay-1">
+          <div class="dish__img"><img src="assets/img/capu.jpg" alt="Капучино" /></div>
+          <div class="dish__body">
+            <h3>Капучино «Облако»</h3>
+            <p>Пенковая шапка, которую не сдует и на высоте крыши</p>
+            <div class="dish__foot"><b>240 ₽</b><button class="btn btn--sm btn--outline js-order">Заказать</button></div>
+          </div>
+        </article>
+        <article class="dish reveal delay-2">
+          <div class="dish__img"><img src="assets/img/latte.jpg" alt="Латте-арт" /></div>
+          <div class="dish__body">
+            <h3>Латте «Пассажир»</h3>
+            <p>Мягкий, с розеткой на пенке — рисует бариста, не навигация</p>
+            <div class="dish__foot"><b>270 ₽</b><button class="btn btn--sm btn--outline js-order">Заказать</button></div>
+          </div>
+        </article>
+        <article class="dish reveal">
+          <div class="dish__img"><img src="assets/img/filter.jpg" alt="Фильтр-кофе" /></div>
+          <div class="dish__body">
+            <h3>Фильтр «Эйрфлоу»</h3>
+            <p>Эфиопия, ягоды и цитрус. Сосуд — термо, крышка на четыре пальца</p>
+            <div class="dish__foot"><b>220 ₽</b><button class="btn btn--sm btn--outline js-order">Заказать</button></div>
+          </div>
+        </article>
+        <article class="dish reveal delay-1">
+          <div class="dish__img"><img src="assets/img/matcha.jpg" alt="Матча латте" /></div>
+          <div class="dish__body">
+            <h3>Матча «Хамелеон»</h3>
+            <p>Церемониальная матча на коковом молоке — цвет летнего неба</p>
+            <div class="dish__foot"><b>300 ₽</b><button class="btn btn--sm btn--outline js-order">Заказать</button></div>
+          </div>
+        </article>
+        <article class="dish reveal delay-2">
+          <div class="dish__img"><img src="assets/img/croissant.jpg" alt="Круассан" /></div>
+          <div class="dish__body">
+            <h3>Круассан «Пропеллер»</h3>
+            <p>Слоёный, миндальный. Крошится только у тебя на балконе</p>
+            <div class="dish__foot"><b>160 ₽</b><button class="btn btn--sm btn--outline js-order">Заказать</button></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FLEET ═══════════ -->
+  <section class="fleet" id="fleet">
+    <div class="container fleet__grid">
+      <div class="fleet__copy reveal">
+        <span class="kicker kicker--light">Наш флот</span>
+        <h2>Дроны, которые <br>не спят и не паркуются</h2>
+        <p class="fleet__lead">
+          Каждый Airbus… то есть AeroBrew S-2 «Грач» несёт до 12 чашек за рейс,
+          летает в дождь и слушается 8-километровую зону доставки.
+        </p>
+        <ul class="feat-list">
+          <li><b>IP54</b><span>дождь и ветер до 10 м/с — полёт по расписанию</span></li>
+          <li><b>78°C</b><span>термо-капсула с гироскопом — кофе не трясёт</span></li>
+          <li><b>3.5 кг</b><span>полезная нагрузка — 12 чашек или бранч на двоих</span></li>
+          <li><b>30 см</b><span>точность RTK-GPS — дрон видит даже форточку</span></li>
+        </ul>
+        <button class="btn btn--primary js-order">Вызвать дрон 🛸</button>
+      </div>
+      <div class="fleet__visual">
+        <div class="photo-card photo-card--dark reveal delay-1">
+          <img src="assets/img/drone-sky.jpg" alt="Дрон на фоне неба" />
+          <div class="photo-card__badge">S-2 «Грач» · взлёт 07:15</div>
+        </div>
+        <div class="photo-card photo-card--sm reveal delay-2">
+          <img src="assets/img/barista.jpg" alt="Инструменты бариста" />
+          <div class="photo-card__badge">Кофе-станция «Гнездо»</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ PROMO ═══════════ -->
+  <section class="section" id="promo">
+    <div class="container">
+      <div class="promo reveal">
+        <img class="promo__img" src="assets/img/cafe.jpg" alt="Интерьер кофейни" />
+        <div class="promo__body">
+          <span class="pill pill--dark">🎁 Промо для впервые прилетающих</span>
+          <h2>Первая чашка — <em>за наш счёт</em></h2>
+          <p>Промокод <b>FIRSTFLIGHT</b> — и дрон юридически обязан принести тебе кофе бесплатно. Нет, он не обидится.</p>
+          <button class="btn btn--primary js-order" data-drink="Капучино «Облако»">Активировать промо ☕</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ REVIEWS ═══════════ -->
+  <section class="section section--tinted" id="reviews">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="kicker">Отзывы с небес</span>
+        <h2>Что говорят те, кто уже слушает небо</h2>
+      </div>
+      <div class="reviews">
+        <figure class="review reveal">
+          <div class="stars">★★★★★</div>
+          <blockquote>«Летает ровно к моему окну в 9:00. Раньше я не верила, что можно спать до 8:50 и всё равно пить горячий кофе. Теперь — верю.»</blockquote>
+          <figcaption><span class="ava">К</span><b>Ксюша</b> · дизайнер · 5-й этаж</figcaption>
+        </figure>
+        <figure class="review reveal delay-1">
+          <div class="stars">★★★★★</div>
+          <blockquote>«У нас в офисе дроны выстраиваются в очередь к переговорке. ETA на экране — как в каршеринге, честно и красиво.»</blockquote>
+          <figcaption><span class="ava">Д</span><b>Дэн</b> · разработчик · офис «Лофт 42»</figcaption>
+        </figure>
+        <figure class="review reveal delay-2">
+          <div class="stars">★★★★☆</div>
+          <blockquote>«Дети каждое утро смотрят в окно и ждут “наш” дрон. Единственный минус — теперь и бабушка просит доставлять ей пирожные.»</blockquote>
+          <figcaption><span class="ava">М</span><b>Марина</b> · мама двоих пилотов-любителей</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FAQ ═══════════ -->
+  <section class="section" id="faq">
+    <div class="container faq-wrap">
+      <div class="section__head reveal">
+        <span class="kicker">FAQ</span>
+        <h2>Спрашивали? Отвечаем</h2>
+      </div>
+      <div class="faq">
+        <details class="faq__item reveal">
+          <summary>Это вообще безопасно? <span class="faq__plus">+</span></summary>
+          <p>Каждый дрон сертифицирован как БВС, маршруты прокладываются в обход жилых
+             зон, а на каждый полёт оформлена страховка. Пропеллеры под кожухом:
+             птицы страдают только от зависти.</p>
+        </details>
+        <details class="faq__item reveal">
+          <summary>Куда именно прилетает дрон? <span class="faq__plus">+</span></summary>
+          <p>Ты указываешь в приложении точку: балкон, двор, вход офиса или крыша коворкинга.
+             Дрон опускает капсулу на тросе — полностью окно открывать не нужно.</p>
+        </details>
+        <details class="faq__item reveal">
+          <summary>А если дождь или шторм? <span class="faq__plus">+</span></summary>
+          <p>Летаем в дождь и ветер до 10 м/с. Если погода совсем апокалиптика —
+             прилетит курьер на электровелосипеде. Цена и ETA те же.</p>
+        </details>
+        <details class="faq__item reveal">
+          <summary>Кофе не прольётся по дороге? <span class="faq__plus">+</span></summary>
+          <p>Термо-капсула с гироскопом держит чашку ровно, как штурман штурвал.
+             Проверено: 12 400 рейсов, пролитых капучино — ноль (мы считали).</p>
+        </details>
+        <details class="faq__item reveal">
+          <summary>Сколько стоит доставка? <span class="faq__plus">+</span></summary>
+          <p>99 ₽ в любую точку зоны доставки. Заказ от 700 ₽ — бесплатно.
+             Промокод FIRSTFLIGHT — первый рейс за наш счёт.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CTA / FOOTER ═══════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="cta reveal">
+        <h2>Готов к первому прилёту? 🛸</h2>
+        <p>Закажи сейчас — дрон уже прогревает винты.</p>
+        <button class="btn btn--primary btn--lg js-order">Заказать дрон ☕</button>
+      </div>
+      <div class="footer__grid">
+        <div>
+          <a class="logo logo--light" href="#top">
+            <span class="logo__mark">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="5" cy="5" r="2.4"/><circle cx="19" cy="5" r="2.4"/>
+                <circle cx="5" cy="19" r="2.4"/><circle cx="19" cy="19" r="2.4"/>
+                <path d="M7 5h10M5 7v10M19 7v10M7 19h10"/>
+                <path d="M10.5 15.5v-4l3-1v4"/><circle cx="9.6" cy="15.8" r="1.1"/><circle cx="12.6" cy="14.8" r="1.1"/>
+              </svg>
+            </span>
+            <span class="logo__text">Aero<b>Brew</b></span>
+          </a>
+          <p class="footer__note">Кофе со скоростью полёта.<br />Оператор БВС № Р-2026-1488.</p>
+        </div>
+        <div class="footer__col">
+          <b>Навигация</b>
+          <a href="#how">Как работает</a>
+          <a href="#menu">Меню</a>
+          <a href="#fleet">Флот</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="footer__col">
+          <b>Контакты</b>
+          <a href="mailto:hi@aerobrew.coffee">hi@aerobrew.coffee</a>
+          <a href="tel:+79000000000">+7 900 000-00-00</a>
+          <span>Кофейня «Гнездо»: ул. Винтовая, 7</span>
+        </div>
+        <form class="footer__form" id="subForm">
+          <b>Подписка на полёты</b>
+          <input type="email" placeholder="твоя@почта.здесь" required />
+          <button class="btn btn--primary btn--sm" type="submit">Подписаться</button>
+        </form>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 AeroBrew. Дроны не греют — кофе греет.</span>
+        <span>Фото: Flickr / Wikimedia, CC BY · CC0. Демо-лендинг.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════ ORDER MODAL ═══════════ -->
+  <div class="modal" id="orderModal" aria-hidden="true">
+    <div class="modal__backdrop js-close"></div>
+    <div class="modal__card" role="dialog" aria-modal="true">
+      <button class="modal__close js-close" aria-label="Закрыть">✕</button>
+      <div class="modal__stage" id="modalForm">
+        <div class="modal__emoji">🛸</div>
+        <h3>Вызвать дрон</h3>
+        <p class="modal__sub">Один тап — и винты закружатся. Демо-заказ, всё бесплатно. 🎈</p>
+        <label>Напиток
+          <select id="drink">
+            <option>Эспрессо «Рофорт»</option>
+            <option selected>Капучино «Облако»</option>
+            <option>Латте «Пассажир»</option>
+            <option>Фильтр «Эйрфлоу»</option>
+            <option>Матча «Хамелеон»</option>
+            <option>Круассан «Пропеллер»</option>
+          </select>
+        </label>
+        <label>Куда скинуть капсулу
+          <input id="address" type="text" placeholder="Балкон, 5-й этаж, окно на восток" />
+        </label>
+        <button class="btn btn--primary btn--full" id="launchBtn">Вызвать дрон 🚀</button>
+      </div>
+      <div class="modal__stage hidden" id="modalFlight">
+        <div class="drone-flight">
+          <div class="drone-flight__icon" id="flightEmoji">🧑‍🍳</div>
+          <h3 id="flightTitle">Бариста готовит твой кофе…</h3>
+          <div class="progress"><div class="progress__bar" id="flightBar"></div></div>
+          <p class="modal__sub" id="flightEta">ETA: 15:00 ☁️</p>
+          <div class="flight-steps" id="flightSteps">
+            <span class="is-active">☕ Готовим</span>
+            <span>📦 Погрузка</span>
+            <span>🛸 В полёте</span>
+            <span>🪟 У окна</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
